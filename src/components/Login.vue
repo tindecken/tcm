@@ -30,7 +30,6 @@
 <script>
 	import { mapGetters } from 'vuex'
 	import { authen } from '../backend/services'
-import { constants } from 'http2';
 
   export default {
     name: 'login',
