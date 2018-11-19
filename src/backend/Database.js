@@ -31,7 +31,6 @@ async function removeDB() {
 }
 
 async function _create() {
-  debugger
   await removeDB()
   let localdb = await new PouchDB(localDBURL)
   let remotedb = new PouchDB(remoteDBURL, {
