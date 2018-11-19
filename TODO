@@ -1,3 +1,4 @@
 
 Todo:
-  ☐ Bug #1: Fix lỗi DB start lên đang bị lỗi, đã chuyển qua tên DB là tcm_db thay vì tcs_db như trước @started(18-11-18 21:05)
+  ✔ Bug #1: Fix lỗi DB start lên đang bị lỗi, đã chuyển qua tên DB là tcm_db thay vì tcs_db như trước @started(18-11-18 21:05) --> Lỗi do config router bị sai, route qua login mà để / @done(18-11-19 17:11) @lasted(20h6m50s)
+  ✔ Bug #2: db.find is not a function (http://prntscr.com/lk5rf3) @started(18-11-19 17:00) @done(18-11-19 17:16) @lasted(2s) --> Solution is here: https://stackoverflow.com/questions/48186831/pouchdb-find-is-not-a-function

@@ -9,6 +9,7 @@
           required
         ></v-text-field>
         <v-text-field
+          type="password"
           v-model="password"
           :rules="passwordRules"
           label="Password"
@@ -18,7 +19,7 @@
           :disabled="!valid"
           @click="login"
         >
-          submit
+          Login
         </v-btn>
         <v-btn @click="clear">clear</v-btn>
       </v-form>
@@ -29,19 +30,17 @@
 <script>
 	import { mapGetters } from 'vuex'
 	import { authen } from '../backend/services'
+import { constants } from 'http2';
 
   export default {
-    mounted: () => {
-      console.log('A')
-    },
     name: 'login',
 		data: () => ({
       valid: true,
-      password: '',
+      password: 'rivaldo',
       passwordRules: [
         v => !!v || 'Password is required',
       ],
-      email: '',
+      email: 'thaihoang.nguyen@acomsolutions.com',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid'
@@ -58,10 +57,12 @@
         this.$refs.form.reset()
       },
 			login() {
-				authen(this.form.email, this.form.password).then((result)=> {
+				authen(this.email, this.password).then((result)=> {
 					if(result) this.loginSuccessful(result.token)
 					else this.loginFailed()
-				})
+				}).catch((err) => {
+          console.log('err', err)
+        })
 			},
 			loginSuccessful (token) {
 				if (!token) {
@@ -70,7 +71,6 @@
 				}
 
 				localStorage.token = token
-				this.form.error = false
 				this.$store.dispatch('login')
 				this.$router.replace(this.$route.query.redirect || '/home')
 			},

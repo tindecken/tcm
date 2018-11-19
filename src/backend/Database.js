@@ -1,8 +1,9 @@
 import PouchDB from 'pouchdb'
+import PouchdbFind from 'pouchdb-find';
 import _ from 'lodash'
 import mock from './mockdata'
 PouchDB.plugin(require('pouchdb-authentication'))
-PouchDB.plugin(require('pouchdb-find'))
+PouchDB.plugin(PouchdbFind);
 
 
 var localDBURL = 'tcm_db'
@@ -107,8 +108,6 @@ async function _create() {
   
   return localdb
 }
-
-
 
 export function get() {
   if (!localdb)

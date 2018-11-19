@@ -17,10 +17,10 @@ const remotedb = new PouchDB(remoteDBURL, {
   })
 
 async function authen(email, password) {
-	console.log('Input Email:', email)
-	console.log('Input Password:', password)
 	let result = {}
-	const db = await Database.get();
+	const db = await Database.get()
+	console.log('db', db)
+	debugger
 	await db.find({
 		selector: {
 			"type": { $eq: 'user'},
@@ -28,7 +28,6 @@ async function authen(email, password) {
 			"password": { $eq: password },
 		},
 	}).then(async (data) => {
-		console.log('data', data)
 		let users = data.docs
 		if (users.length > 0) {
 			var token = jwt.sign({ name: users[0].name, email: users[0].email }, secret, {
