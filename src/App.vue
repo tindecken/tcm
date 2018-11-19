@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app id="app" dark >
     <router-view></router-view>
   </v-app>
 </template>
@@ -29,3 +29,8 @@ import * as Database from './backend/Database'
     }
   }
 </script>
+
+<style>
+#app { height: 100% }
+</style>
+

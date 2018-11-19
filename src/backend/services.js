@@ -19,8 +19,6 @@ const remotedb = new PouchDB(remoteDBURL, {
 async function authen(email, password) {
 	let result = {}
 	const db = await Database.get()
-	console.log('db', db)
-	debugger
 	await db.find({
 		selector: {
 			"type": { $eq: 'user'},
