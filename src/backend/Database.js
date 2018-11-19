@@ -2,7 +2,6 @@ import PouchDB from 'pouchdb'
 import PouchdbFind from 'pouchdb-find';
 import _ from 'lodash'
 import mock from './mockdata'
-PouchDB.plugin(require('pouchdb-authentication'))
 PouchDB.plugin(PouchdbFind);
 
 
