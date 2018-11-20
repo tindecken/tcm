@@ -1,18 +1,24 @@
 <template>
   <v-list>
-        <v-list-tile  @click="switchTheme()">
-          <v-list-tile-action>
-            <v-icon>compare_arrows</v-icon>
-            <!-- <v-list-tile-content>Switch theme</v-list-tile-content> -->
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>
-              Switch Theme
-            </v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-divider></v-divider>
-      </v-list>
+    <v-list-tile  @click="switchTheme()">
+      <v-list-tile-action>
+        <v-icon>compare_arrows</v-icon>
+      </v-list-tile-action>
+      <v-list-tile-content>
+        <v-list-tile-title>Switch Theme</v-list-tile-title>
+      </v-list-tile-content>
+    </v-list-tile>
+    <v-divider></v-divider>
+    <v-list-tile  @click="logout()">
+      <v-list-tile-action>
+        <v-icon>exit_to_app</v-icon>
+      </v-list-tile-action>
+      <v-list-tile-content>
+        <v-list-tile-title>Logout</v-list-tile-title>
+      </v-list-tile-content>
+    </v-list-tile>
+    <v-divider></v-divider>
+  </v-list>
 </template>
 
 <script>
@@ -29,6 +35,9 @@
       },
       open (link) {
         this.$electron.shell.openExternal(link)
+      },
+      logout () {
+        this.$router.push('/logout')
       }
     }
   }

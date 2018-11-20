@@ -12,7 +12,8 @@
     </v-navigation-drawer>
     <v-toolbar fixed app>
       <v-spacer></v-spacer>
-      <v-toolbar-title>Settings</v-toolbar-title>
+      <span>Hi, {{ currentUser.name }}</span>
+      <!-- <v-toolbar-title>Settings</v-toolbar-title> -->
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
@@ -45,6 +46,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import AppFooter from './Footer/AppFooter'
 import NavDrawer from './NavigationDrawer/NavigationDrawer'
 export default {
@@ -58,7 +60,15 @@ export default {
   }),
   props: {
     source: String
-  }
+  },
+  methods: {
+    open (link) {
+      this.$electron.shell.openExternal(link)
+    }
+  },
+  computed: {
+			...mapGetters({ currentUser: 'currentUser' })
+		}
 };
 </script>
 
