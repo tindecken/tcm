@@ -3,7 +3,8 @@ import * as MutationTypes from '@/store/mutation_types.js'
 
 const state = {
   selectedTab: 'testPlan',
-  tlTreeLoaded: true
+  tlTreeLoaded: true,
+  theme: 'dark'
 }
 
 const mutations = {
@@ -12,6 +13,13 @@ const mutations = {
   },
   [MutationTypes.CHANGETLTREELOADED] (state, payload){
     state.tlTreeLoaded = payload
+  },
+  [MutationTypes.switchTheme] (state, payload){
+    if(state.theme === 'dark'){
+      state.theme = 'light'
+    }else{
+      state.theme = 'dark'
+    }
   }
 }
 
@@ -22,6 +30,9 @@ const actions = {
   changeTLTreeLoaded ({commit}, payload){
     commit(MutationTypes.CHANGETLTREELOADED, payload)
   },
+  switchTheme({commit}, payload){
+    commit(MutationTypes.switchTheme, payload)
+  }
 }
 
 const getters = {
@@ -30,6 +41,9 @@ const getters = {
   },
   tlTreeLoaded(state){
     return state.tlTreeLoaded
+  },
+  theme(state){
+    return state.theme
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app" dark >
+  <v-app id="app" v-bind:dark="theme === 'dark' ? true : false">
     <router-view></router-view>
   </v-app>
 </template>
@@ -25,12 +25,15 @@ import * as Database from './backend/Database'
       }
     },
     computed: {
-      ...mapGetters({ currentUser: 'currentUser'})
+      ...mapGetters({ 
+          currentUser: 'currentUser',
+          theme: 'theme'
+        })
     }
   }
 </script>
 
 <style>
-#app { height: 100% }
+  #app { height: 100% }
 </style>
 
