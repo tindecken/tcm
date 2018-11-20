@@ -7,50 +7,8 @@
       app
       stateless
     >
-      <v-list subheader two-line>
-        <v-subheader>Theme</v-subheader>
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-radio-group v-model="theme" row>
-              <v-radio label="Dark" value="dark" mr-5></v-radio>
-              <v-radio label="Light" value="light"></v-radio>
-            </v-radio-group>
-          </v-list-tile-action>
-        </v-list-tile>
-            <!-- <v-list-tile-action>
-            <v-icon>home</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>
-            Theme
-          </v-list-tile-title>
-          <v-radio-group v-model="theme" row>
-                <v-radio label="Dark" value="dark"></v-radio>
-                <v-radio label="Light" value="light"></v-radio>
-              </v-radio-group>
-          </v-list-tile>  -->
-        <!-- <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>home</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Home</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>home</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Theme</v-list-tile-title>
-          </v-list-tile-content>
-          <v-list-tile-action>
-            <v-radio-group v-model="theme" row>
-              <v-radio label="Dark" value="dark"></v-radio>
-              <v-radio label="Light" value="light"></v-radio>
-            </v-radio-group>
-          </v-list-tile-action>
-        </v-list-tile> -->
-      </v-list>
+      <nav-drawer></nav-drawer>
+      
     </v-navigation-drawer>
     <v-toolbar fixed app>
       <v-spacer></v-spacer>
@@ -88,10 +46,10 @@
 
 <script>
 import AppFooter from './Footer/AppFooter'
+import NavDrawer from './NavigationDrawer/NavigationDrawer'
 export default {
-  components: { AppFooter },
+  components: { AppFooter, NavDrawer },
   data: () => ({
-    theme: "dark",
     drawer: null,
     tab: null,
     items: ["test plan", "test lab"],
