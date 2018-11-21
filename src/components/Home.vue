@@ -12,7 +12,7 @@
     </v-navigation-drawer>
     <v-toolbar fixed app>
       <v-spacer></v-spacer>
-      <span>Hi, {{ currentUser.name }}</span>
+      <span>Hi, {{ currentUser }}</span>
       <!-- <v-toolbar-title>Settings</v-toolbar-title> -->
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
@@ -21,18 +21,18 @@
         <SplitArea :size="25">
           <div>
             <v-tabs
-              slot="extension" v-model="tab" grow>
+              slot="extension" v-model="tabSelected" grow>
               <v-tabs-slider></v-tabs-slider>
-              <v-tab v-for="item in items" :key="item">
-                {{ item }}
-              </v-tab>
+              <v-tab>Test Plan</v-tab>
+              <v-tab>Test Lab</v-tab>
             </v-tabs>
           </div>
           <v-tabs-items v-model="tab">
-            <v-tab-item v-for="item in items" :key="item">
-              <v-card flat>
-                <v-card-text>{{ text }}</v-card-text>
-              </v-card>
+            <v-tab-item>
+              <test-plan-tree></test-plan-tree>
+            </v-tab-item>
+            <v-tab-item>
+              Test Lab Tree
             </v-tab-item>
           </v-tabs-items>
         </SplitArea>
@@ -49,11 +49,12 @@
 import { mapGetters } from 'vuex'
 import AppFooter from './Footer/AppFooter'
 import NavDrawer from './NavigationDrawer/NavigationDrawer'
+import TestPlanTree from './TestPlan/TestPlanTree'
 export default {
-  components: { AppFooter, NavDrawer },
+  components: { AppFooter, NavDrawer, TestPlanTree },
   data: () => ({
     drawer: null,
-    tab: null,
+    tabSelected: 0,
     items: ["test plan", "test lab"],
     text:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."

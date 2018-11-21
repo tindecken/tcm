@@ -5,4 +5,6 @@ Todo:
   ✔ Bug #3: Fix lỗi khi đã login rồi, vào màn hình đen @started(18-11-19 20:46) @done(18-11-19 20:46) @lasted(7s)
   ☐ Refactor #1: Sửa lại form login như này: https://vuetifyjs.com/en/examples/layouts/centered
   ✔ Toolbar hiển thị Icon-Name, có logout @started(18-11-20 21:23) @done(18-11-20 21:51) @lasted(28m45s)
+  ☐ Feature #1: Làm cho Vuex và localprofile trở nên đồng nhất
+
 
