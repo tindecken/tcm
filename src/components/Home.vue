@@ -14,7 +14,8 @@
       <v-spacer></v-spacer>
       <span>Hi, {{ currentUser.name }}</span>
       <!-- <v-toolbar-title>Settings</v-toolbar-title> -->
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"><v-icon>settings</v-icon></v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
       <Split :gutterSize="2">
