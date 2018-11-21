@@ -12,7 +12,7 @@
     </v-navigation-drawer>
     <v-toolbar fixed app>
       <v-spacer></v-spacer>
-      <span>Hi, {{ currentUser }}</span>
+      <span>Hi, {{ currentUser.name }}</span>
       <!-- <v-toolbar-title>Settings</v-toolbar-title> -->
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
@@ -27,7 +27,7 @@
               <v-tab>Test Lab</v-tab>
             </v-tabs>
           </div>
-          <v-tabs-items v-model="tab">
+          <v-tabs-items v-model="tabSelected">
             <v-tab-item>
               <test-plan-tree></test-plan-tree>
             </v-tab-item>
