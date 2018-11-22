@@ -1,16 +1,19 @@
 <template>
   <div>
     {{tree}}
-  <v-treeview v-model="tree" :items="tlTreeViewData" item-key="_id"
-    selectable transition open-all activatable
+    {{active}}
+  <v-treeview 
+    :active.sync="active"
+    v-model="tree" 
+    :items="tlTreeViewData" 
+    item-key="_id"
+    item-name="name"
+    transition
+    selectable
+    activatable
   >
-    <template slot="prepend" slot-scope="{ item, open, leaf}">
-      <v-icon v-if="item.type === 'category'">
-        mdi-folder
-      </v-icon>
-      <v-icon v-else>
-        <!-- {{ files[item.file] }} -->
-      </v-icon>
+    <template slot="prepend" slot-scope="{ item, open, leaf }">
+      <v-icon>mdi-folder</v-icon>
     </template>
   </v-treeview>
   
@@ -24,12 +27,14 @@ export default {
   name: 'test-plan-tree',
   data (){
     return {
-      tree: []
+      tree: [],
+      active: []
     }
   },
   created () {
     getTestPlanTree().then((result) => {
       this.tlTreeViewData = result
+      console.log('result',result)
     })
   },
   computed: {

@@ -15,7 +15,7 @@
       <span>Hi, {{ currentUser.name }}</span>
       <!-- <v-toolbar-title>Settings</v-toolbar-title> -->
       
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"><v-icon>settings</v-icon></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"><v-icon>mdi-settings-outline</v-icon></v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
       <Split :gutterSize="2">
@@ -33,7 +33,7 @@
               <test-plan-tree></test-plan-tree>
             </v-tab-item>
             <v-tab-item>
-              Test Lab Tree
+              <test-lab-tree></test-lab-tree>
             </v-tab-item>
           </v-tabs-items>
         </SplitArea>
@@ -51,8 +51,9 @@ import { mapGetters } from 'vuex'
 import AppFooter from './Footer/AppFooter'
 import NavDrawer from './NavigationDrawer/NavigationDrawer'
 import TestPlanTree from './TestPlan/TestPlanTree'
+import TestLabTree from './TestLab/TestLabTree'
 export default {
-  components: { AppFooter, NavDrawer, TestPlanTree },
+  components: { AppFooter, NavDrawer, TestPlanTree, TestLabTree },
   data: () => ({
     drawer: null,
     tabSelected: 0,
